@@ -1,0 +1,439 @@
+
+const express = require("express");
+const mysql = require('mysql');
+const cors = require('cors');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+const db = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "saripos"
+});
+
+// User registration
+app.post('/saripos', (req, res) => {
+    const sql = "INSERT INTO users (firstName, lastName, email, username, password, role) VALUES (?)";
+    const values = [
+        req.body.firstName,
+        req.body.lastName,
+        req.body.email,
+        req.body.username,
+        req.body.password,
+        req.body.role
+    ];
+
+    db.query(sql, [values], (err, data) => {
+        if (err) {
+            console.error("Database error: ", err);
+            return res.json({ message: "Error inserting data" });
+        }
+        
+        // Send back the user data upon successful registration
+        return res.json({
+            message: "Registration successfully inserted!",
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            username: req.body.username,
+            email: req.body.email,
+            role: req.body.role
+        });
+    });
+});
+
+// User login
+app.post('/login', (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    const sqlEmailCheck = "SELECT * FROM users WHERE email = ?";
+    db.query(sqlEmailCheck, [email], (err, data) => {
+        if (err) {
+            console.error("Database error: ", err);
+            return res.status(500).json({ message: "Database error occurred" });
+        }
+
+        if (data.length === 0) {
+            return res.status(401).json({ message: "No account found with that email. Please register first." });
+        }
+
+        const user = data[0]; 
+        if (user.password === password) {
+            return res.json({ 
+                message: "Login successful!", 
+                firstName: user.firstName, 
+                lastName: user.lastName, 
+                username: user.username, 
+                email: user.email, 
+                role: user.role 
+            });
+        } else {
+            return res.status(401).json({ message: "Incorrect password. Please try again." });
+        }
+    });
+});
+
+
+
+
+// POST endpoint to add a category
+app.post('/category', (req, res) => {
+    const { nameCategory, descriptionCategory, dateCreated, addedBy, role } = req.body;
+    
+
+    // Check if category already exists
+    const checkQuery = `SELECT * FROM category WHERE nameCategory = ?`;
+    db.query(checkQuery, [nameCategory], (err, result) => {
+        if (err) {
+            console.error('Error checking category:', err);
+            return res.status(500).json({ message: 'Internal Server Error' });
+        }
+
+        if (result.length > 0) {
+            return res.json({ message: 'Category already exists.' });
+        }
+
+        // If it doesn't exist, proceed to insert
+        const insertQuery = `INSERT INTO category (nameCategory, descriptionCategory, dateCreated, addedBy, role) VALUES (?, ?, ?, ?, ?)`;
+        db.query(insertQuery, [nameCategory, descriptionCategory, dateCreated, addedBy, role], (err, result) => {
+            if (err) {
+                console.error('Error adding category:', err);
+                return res.status(500).json({ message: 'Internal Server Error' });
+            }
+
+            res.status(201).json({ message: 'Category successfully added!' });
+        });
+    });
+});
+
+
+
+// Fetch categories
+app.get('/category', (req, res) => {
+    const sql = "SELECT * FROM category";
+    db.query(sql, (err, results) => {
+        if (err) {
+            console.error("Database error: ", err);
+            return res.status(500).json({ message: "Error fetching categories" });
+        }
+        res.json(results);
+    });
+});
+
+// Delete Category
+app.delete('/category/:nameCategory', (req, res) => {
+    const nameCategory = req.params.nameCategory;
+
+    const sql = "DELETE FROM category WHERE nameCategory = ?";
+    db.query(sql, [nameCategory], (err, result) => {
+        if (err) {
+            console.error("Database error: ", err);
+            return res.status(500).json({ message: "Error deleting category" });
+        }
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ message: "Category not found." });
+        }
+
+        res.json({ message: "Category successfully deleted!" });
+    });
+});
+
+// PUT endpoint to update a category
+app.put('/category/:id', (req, res) => {
+    const { id } = req.params; // Get the category ID from the URL parameters
+    const { nameCategory, descriptionCategory, updatedBy, updatedRole, dateUpdated } = req.body;
+
+    // First, check if the category name already exists
+    const checkQuery = `SELECT * FROM category WHERE nameCategory = ? AND idCategory <> ?`;
+    
+    db.query(checkQuery, [nameCategory, id], (err, results) => {
+        if (err) {
+            console.error('Error checking category existence:', err);
+            return res.status(500).json({ message: 'Internal Server Error' });
+        }
+
+        if (results.length > 0) {
+            return res.json({ message: 'Category already exists.' });
+        }
+
+
+        // Update the category in the database
+        const updateQuery = `
+            UPDATE category 
+            SET nameCategory = ?, descriptionCategory = ?, updatedBy = ?, updatedRole = ?, dateUpdated = ?
+            WHERE idCategory = ?`;
+        
+        db.query(updateQuery, [nameCategory, descriptionCategory, updatedBy, updatedRole, dateUpdated, id], (err, result) => {
+            if (err) {
+                console.error('Error updating category:', err);
+                return res.status(500).json({ message: 'Internal Server Error' });
+            }
+            
+            if (result.affectedRows === 0) {
+                return res.status(404).json({ message: 'Category not found.' });
+            }
+
+            res.status(200).json({ message: 'Category successfully updated!' });
+        });
+    });
+});
+
+
+
+
+
+
+const generateCustomerID = (callback) => {
+    const sql = `SELECT MAX(CAST(SUBSTRING(customerID, 3) AS UNSIGNED)) AS lastId FROM customers WHERE customerID LIKE 'C-%'`;
+
+    db.query(sql, (error, results) => {
+        if (error) {
+            console.error('Error fetching last customerID:', error);
+            return callback(error, null);
+        }
+
+        let newId = 1; // Default to 1 if there are no customers
+        if (results[0].lastId !== null) {
+            newId = results[0].lastId + 1; // Increment the last ID
+        }
+
+        // Ensure the ID is 4 digits
+        const paddedId = String(newId).padStart(4, '0'); // Pad with zeros
+        const customerID = `C-${paddedId}`; // Create the new ID
+        callback(null, customerID); // Return the new customerID
+    });
+};
+
+
+
+app.post('/customers', (req, res) => {
+    const {
+        firstName,
+        lastName,
+        number,
+        address,
+        dateRegistered,
+        registeredBy,
+        role,
+    } = req.body;
+
+    // Generate a new customerID
+    generateCustomerID((error, customerID) => {
+        if (error) {
+            return res.status(500).json({ message: 'Error generating customer ID.' });
+        }
+
+        // SQL query to insert the customer into the database
+        const sql = `
+            INSERT INTO customers (customerID, firstName, lastName, contactNumber, address, dateRegistered, registeredBy, roleRegisteredBy)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        `;
+        const values = [customerID, firstName, lastName, number, address, dateRegistered, registeredBy, role];
+
+        db.query(sql, values, (error, results) => {
+            if (error) {
+                console.error('Error adding customer:', error);
+                return res.status(500).json({ message: 'Error adding customer. Please try again.' });
+            }
+
+            // Return the newly added customer data
+            return res.json({
+                message: 'Customer successfully added!',
+                customer: {
+                    customerID,
+                    firstName,
+                    lastName,
+                    contactNumber: number,
+                    address,
+                    dateRegistered,
+                    registeredBy,
+                    roleRegisteredBy: role,
+                    points: 0, // Initialize points to 0 or whatever logic you want
+                },
+            });
+        });
+    });
+});
+
+ // Delete Customer
+app.delete('/customers/:customerID', (req, res) => {
+    const customerID = req.params.customerID; // Get the customerID from the request parameters
+
+    // SQL query to delete the customer by customerID
+    const sqlDelete = "DELETE FROM customers WHERE customerID = ?";
+
+    db.query(sqlDelete, [customerID], (err, result) => {
+        if (err) {
+            console.error("Database error while deleting customer:", err);
+            return res.status(500).json({ message: "Database error occurred" });
+        }
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ message: "Customer not found" });
+        }
+
+        return res.json({ message: "Customer successfully deleted!" });
+    });
+});
+
+
+
+// Fetch categories
+app.get('/customers', (req, res) => {
+    const sql = "SELECT * FROM customers";
+    db.query(sql, (err, results) => {
+        if (err) {
+            console.error("Database error: ", err);
+            return res.status(500).json({ message: "Error fetching customers" });
+        }
+        res.json(results);
+    });
+});
+
+app.put('/customers/:id', (req, res) => {
+    const customerId = req.params.id;
+    const { firstName, lastName, number, address, updatedBy, updatedRole, updatedDate } = req.body;
+
+    const updateQuery = `
+        UPDATE customers 
+        SET firstName = ?, lastName = ?, number = ?, address = ?, 
+            updatedBy = ?, updatedRole = ?, updatedDate = ?
+        WHERE customerID = ?`;
+
+    const values = [firstName, lastName, number, address, updatedBy, updatedRole, updatedDate, customerId];
+
+    db.query(updateQuery, values, (error, results) => {
+        if (error) {
+            console.error("Error updating customer:", error);
+            return res.status(500).json({ message: 'Error updating customer.' });
+        }
+
+        if (results.affectedRows > 0) {
+            return res.json({ message: 'Customer successfully updated!' });
+        } else {
+            return res.status(404).json({ message: 'Customer not found.' });
+        }
+    });
+});
+
+
+
+// SKU Generation Function
+function generateSKU() {
+    const prefix = 'PROD';
+    const shortTimestamp = Math.floor(Date.now() / 100000); // Shortened timestamp
+    const randomNum = Math.floor(100 + Math.random() * 900); // 3-digit random number
+
+    return `${prefix}-${shortTimestamp}-${randomNum}`; // Example: PROD-16319-123
+}
+
+
+
+app.post('/products', (req, res) => {
+    const {
+        productName,
+        productPrice,
+        productQuantity,
+        productUnit,
+        fkCategory,
+        addedBy,
+        role,
+        dateAdded,
+    } = req.body;
+
+    const SKU = generateSKU();
+
+    const sql = `
+        INSERT INTO products 
+        (SKU, productName, productPrice, productQuantity, productUnit, fkCategory, addedBy, role, dateAdded)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+
+    const values = [SKU, productName, productPrice, productQuantity, productUnit, fkCategory, addedBy, role, dateAdded];
+
+    db.query(sql, values, (err, result) => {
+        if (err) {
+            console.error('Error adding product:', err);
+            return res.status(500).json({ message: 'Error adding product' });
+        }
+
+        res.status(201).json({ message: 'Product successfully added!', SKU });
+    });
+});
+
+
+
+// DELETE endpoint to remove a product by SKU
+app.delete('/products/:sku', (req, res) => {
+    const { sku } = req.params; // Get the SKU from the request parameters
+
+    // SQL query to delete the product
+    const sql = 'DELETE FROM products WHERE SKU = ?';
+
+    db.query(sql, [sku], (error, results) => {
+        if (error) {
+            console.error('Error deleting product:', error);
+            return res.status(500).json({ message: 'Error deleting product' });
+        }
+        
+        if (results.affectedRows === 0) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+
+        // Send success response
+        res.json({ message: 'Product deleted successfully' });
+    });
+});
+
+// Fetch products
+app.get('/products', (req, res) => {
+    const sql = "SELECT * FROM products";
+    db.query(sql, (err, results) => {
+        if (err) {
+            console.error("Database error: ", err);
+            return res.status(500).json({ message: "Error fetching products" });
+        }
+        res.json(results);
+    });
+});
+
+app.put('/products/:SKU', (req, res) => {
+    const SKU = req.params.SKU;  // Get SKU from the URL parameters
+    const { productName, productPrice, productQuantity, productUnit, updatedBy, roleUpdated, dateUpdated } = req.body;
+
+    const updateQuery = `
+        UPDATE products 
+        SET productName = ?, productPrice = ?, productQuantity = ?, productUnit = ?, updatedBy = ?, roleUpdated = ?, dateUpdated = ?
+        WHERE SKU = ?`;
+
+    const values = [productName, productPrice, productQuantity, productUnit, updatedBy, roleUpdated, dateUpdated, SKU];
+
+    db.query(updateQuery, values, (err, result) => {
+        if (err) {
+            console.error('Error updating product:', err);
+            return res.status(500).json({ message: 'Error updating product.' });
+        }
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ message: 'Product not found.' });
+        }
+
+        return res.json({ message: 'Product successfully updated!' });
+    });
+});
+
+
+
+
+
+
+
+
+// Start the server
+app.listen(8083, () => {
+    console.log("Server is running on port 8083");
+});

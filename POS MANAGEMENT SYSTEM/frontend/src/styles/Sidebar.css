@@ -1,0 +1,141 @@
+.sidebar-container {
+    display: flex; /* Use flexbox for layout */
+}
+
+.sidebar {
+    width: 250%; /* Ensure the sidebar takes full height */
+    height: 100vh; /* Full height */
+    background-color: #EF2646; /* Background color */
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.25); /* Smoother right shadow effect */
+    border-radius: 0px; /* Rounded corners */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align the items */
+    padding-top: 30px; /* Spacing from the top */
+    padding: 50px; /* Spacing from the sides */
+    margin-left: -90px;
+    margin-top: -90px;
+    color: white;
+}
+
+.sidebar-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align the logo and text */
+    margin-bottom: 5px; /* Space below the header */
+}
+
+.store-logo {
+    width: 100px; /* Set logo width */
+    height: 100px; /* Set logo height */
+    margin-top: 10px;
+}
+
+h2{
+    margin-top: 10px;
+}
+
+.sidebar-menu {
+    display: flex; /* Flexbox layout for vertical arrangement */
+    flex-direction: column; /* Arrange items in a column */
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 10px 0; /* Space above and below the menu */
+    margin-top: 20px;
+}
+
+.sidebar-menu li {
+    margin: 12px 0; /* Space between each menu item vertically */
+}
+
+.sidebar-menu a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline from links */
+    display: flex; /* Use flex for icon and text alignment */
+    align-items: center; /* Center align the items */
+    font-family: 'Oswald', sans-serif; /* Set font family to Oswald */
+    font-size: 16px; /* Adjust font size as needed */
+    padding: 1px 15px; /* Add padding to the link */
+    border-radius: 5px; /* Rounded corners for the rectangle */
+    transition: background-color 0.3s, transform 0.5s; /* Smooth transition for background and zoom */
+}
+
+.sidebar-menu a:hover, .active-link { /* Add active link styles here */
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background on hover */
+    transform: scale(1.05); /* Slightly zoom in */
+    color: white;
+}
+
+.active-link {
+    background-color: rgba(255, 255, 255, 0.5); /* Same background as hover */
+    color: white; /* Keep text color white */
+    transform: scale(1.05); /* Slightly zoom in */
+}
+
+.sidebar-menu img {
+    margin-right: 8px; /* Space between icon and text */
+    width: 20px; /* Adjust icon size if needed */
+    height: 20px; /* Adjust icon size if needed */
+}
+
+.logout-button {
+    margin-top: 30px; /* Pushes the logout button to the bottom */
+    padding: 5px 15px; /* Padding for the button */
+    background-color: #EF2646; /* Semi-transparent background */
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.25); /* Smoother right shadow effect */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 15px; /* Rounded corners */
+    width: 120px;
+    text-align: center; /* Center text */
+    margin-bottom: 100px;
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+    border-color: white;
+}
+
+.logout-button:hover {
+    background-color: #EF2646; /* Slightly darker on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+    color: white;
+}
+
+
+.submenu-item {
+    position: relative;
+}
+
+/* Submenu styling */
+.submenu {
+    display: none;
+    position: absolute;
+    left: 100%; /* Position the submenu to the right of the main item */
+    top: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    
+    /* Set the width of the submenu */
+    width: 200px; /* You can change this value to adjust the width */
+}
+
+/* Display submenu on hover */
+.submenu-item:hover .submenu {
+    display: block;
+}
+
+/* Submenu links styling */
+.submenu a {
+    display: block;
+    padding: 5px 10px;
+    color: #333; /* Default color */
+    text-decoration: none;
+    font-size: 13px;
+}
+
+/* Change background color and text color on hover */
+.submenu a:hover {
+    background-color: #EF2646; /* Set a contrasting background color */
+    color: #fff; /* Set text color to white when hovering */
+}

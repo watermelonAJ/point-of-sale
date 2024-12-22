@@ -1,0 +1,623 @@
+/* AddCustomer.css */
+
+
+
+.addcustomer-container {
+    display: flex; /* Use flexbox for layout */
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+    overflow: hidden; /* Prevent overflow */
+    background-color: white;
+    padding: 90px;
+    gap: 60px;
+}
+
+
+.addcustomer-main-content {
+    flex: 1;
+    padding: 0px;
+    background-color: white;
+    overflow-y: auto;
+    margin-top: -50px;
+    overflow: hidden;
+    justify-content:flex-start;
+}
+
+
+.addcustomer-dash {
+    font-family: 'Oswald', sans-serif;
+    color: #EF2646;
+    margin: 24px 0;
+    text-align: left;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    display: flex; /* Use flex to align text and icon */
+    align-items: center; /* Vertically center the items */
+    margin-top: 10px;
+    font-size: 40px;
+ 
+}
+
+.addcustomer-icon {
+    margin-right: 10px; /* Add space between the icon and the text */
+    width: 50px; /* Set a size for the icon */
+    height: 50px; /* Set a size for the icon */
+}
+
+
+.add-customer-button {
+    margin-top: 10px; /* Adds spacing between the heading and the button */
+    padding: 10px 15px; /* Adds padding for the button */
+    background-color: #f44336; /* Sets button background color */
+    color: #fff; /* Sets button text color */
+    border: none; /* Removes default border */
+    border-radius: 5px; /* Rounds button corners */
+    font-size: 16px; /* Sets font size */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    margin-left: 15px;
+   
+}
+
+.add-customer-button:hover {
+    background-color: #d02a39; /* Darker blue on hover */
+}
+
+
+.search-container {
+    display: flex;
+    justify-content: flex-start;  /* Align children to the left */
+    align-items: center; /* Optional: Centers items vertically */
+    gap: 10px; /* Adds spacing between child elements */
+
+}
+
+
+
+.search-bar-categories {
+    width:40% !important;
+    padding: 8px 10px 8px 40px; /* Add left padding for space for the icon */
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-image: url('/search.png');
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    text-indent: 35px;
+    margin-bottom: 20px;
+    margin-left: 2px; /* Ensure no negative margin */
+    
+}
+
+.toast-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 1000;
+}
+
+
+
+
+
+
+/* Bottom container for customer */
+
+.addcustomer-bottom-container{
+    height: 60vh; /* Adjust based on the available space */
+    overflow-y: auto; /* Prevent overflow here */
+
+}
+
+.addcustomer-table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Remove spaces between borders */
+    margin-top: 10px; /* Add space above the table */
+    font-family: Arial, sans-serif; /* Font style */
+    background-color: white; /* Table background */
+    border: 1px solid black; /* Apply black border around the table */
+ 
+}
+
+.addcustomer-table th,
+.addcustomer-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 5px solid #ddd;
+    font-size: 13px;
+}
+
+.addcustomer-table thead {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.addcustomer-table th, .addcustomer-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.addcustomer-table td {
+
+    font-size: 10px;
+}
+
+
+.addcustomer-table th  {
+    background-color: #007bff;
+    font-weight: bold;
+    font-size: 15px;
+    border: 1px solid #ddd; /* Apply black border around the table */
+    color: white;
+}
+
+.addcustomer-table tbody{
+    font-size: 10px;
+}
+
+
+
+.addcustomer-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.addcustomer-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.addcustomer-actions{
+    display: flex;
+    gap: 10px;
+}
+
+.addcustomer-edit-button,
+.addcustomer-downloadAction-button,
+.addcustomer-details-button,
+.addcustomer-delete-button {
+    padding: 8px 12px;
+    margin-left: 5px;
+    font-size: 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.addcustomer-edit-button {
+    background-color: #4caf50  ;
+    color: white;
+}
+
+.addcustomer-details-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.addcustomer-downloadAction-button {
+    background-color: #3399FF;
+    color: white;
+}
+
+
+.addcustomer-delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+
+/* For WebKit Browsers (Chrome, Safari, Edge) */
+.addcustomer-bottom-container::-webkit-scrollbar {
+    width: 12px;  /* Width of the scrollbar */
+}
+
+.addcustomer-bottom-container::-webkit-scrollbar-track {
+    background: #f1f1f1;  /* Background color of the scrollbar track */
+}
+
+.addcustomer-bottom-container::-webkit-scrollbar-thumb {
+    background-color: #6d6466; /* Scrollbar thumb (the moving part) */
+    border-radius: 6px;        /* Round the corners */
+    border: 3px solid #f1f1f1; /* Add some padding inside the scrollbar thumb */
+}
+
+.addcustomer-bottom-container::-webkit-scrollbar-thumb:hover {
+    background-color: #6d6466; /* Darker color when hovering over the scrollbar */
+}
+
+/* For Firefox */
+.addcustomer-bottom-container {
+    scrollbar-width: thin;           /* Make the scrollbar thinner */
+    scrollbar-color: #6d6466 #f1f1f1; /* Scrollbar thumb color and track color */
+}
+
+
+/*modal*/
+
+/* Modal Background */
+.customer-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure the modal is above other content */
+}
+
+/* Modal Content */
+.customer-modal .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 450px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modal Header */
+.customer-modal .modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* Modal Form */
+.customer-modal .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between input fields */
+}
+
+/* Input Fields */
+.customer-modal .modal-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start; /* Align labels and inputs to the left */
+}
+
+.customer-modal .modal-field label {
+    font-size: 14px;
+    color: #555;
+}
+
+.customer-modal .modal-field input {
+    width: 100%; /* Ensures the input stretches to the full width */
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.customer-modal .modal-field input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Buttons */
+.customer-modal .modal-submit-button,
+.customer-modal .modal-close-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.customer-modal .modal-submit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.customer-modal .modal-submit-button:hover {
+    background-color: #45a049;
+}
+
+.customer-modal .modal-close-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.customer-modal .modal-close-button:hover {
+    background-color: #e53935;
+}
+
+/* Ensure modal is hidden when not shown */
+.customer-modal.hidden {
+    display: none;
+}
+
+/* Styling for download-customer modal */
+/* Specific styles for the download-customer modal */
+.download-customer-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Darkened background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.download-customer-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    width: 70%; /* Smaller width */
+    max-width: 600px; /* Maximum width */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Modal Header */
+.download-customer-modal .modal-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.download-customer-modal .modal-header h2 {
+    font-size: 24px;
+    color: #4a4a4a;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Close Button Style */
+.download-customer-modal .close-modal-download-button {
+    background: none; /* Ensure no background color appears */
+    border: none;
+    font-size: 25px;
+    color: #ff4d4d /* Default color */ !important;
+    cursor: pointer;
+    font-weight: 700;
+    transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+/* Hover effect for close button */
+.download-customer-modal .close-modal-download-button:hover {
+    color: white; /* Change text color on hover */
+    background: none; /* Ensure no background color appears */
+}
+
+/* Customer Details Card */
+.customer-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Customer Information */
+.customer-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns for name and contact details */
+    gap: 1px;
+}
+
+.customer-info p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.customer-info strong {
+    color: #333;
+    font-weight: 600;
+}
+
+/* Address and Date row */
+.customer-info .address,
+.customer-info .date {
+    grid-column: span 2; /* Make address and date take full row */
+}
+
+/* Download Button */
+.download-button {
+    background-color: #2196F3; /* Green color */
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 200px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    margin-left: 150px;
+}
+
+/* Hover effect for download button */
+.download-button:hover {
+    background-color: #0e60a8;
+}
+
+/* Style for the additional info text */
+.info-text {
+    font-size: 12px;
+    color: #777;
+    font-style: italic;
+    margin-left: 10px;
+}
+/* Additional Information Style */
+ .additional-info {
+    grid-column: span 2; /* Makes the additional information span across the whole row */
+    font-size: 14px; /* Slightly smaller font size */
+    color: #555; /* Lighter color for the additional info */
+    margin-top: 10px; /* Adds space between the added date and the additional info */
+}
+
+/* Force text color to be black */
+.customer-info p {
+    margin: 0;
+    font-size: 16px;
+    color: #000 !important;  /* Ensure text color is black */
+}
+
+.customer-info strong {
+    color: #000 !important;  /* Ensure strong text is black */
+}
+
+/* Modal Header */
+.download-customer-modal .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: -30px;
+    margin-left: 10px;
+}
+
+/* Style the icon */
+.modal-icon-dl {
+    width: 100px; /* Set width of the icon */
+    height: 100px; /* Set height of the icon */
+   
+}
+
+
+
+/* Modal fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ensure modal content has higher stacking context */
+.modal {
+    position: fixed; /* Ensure modals are fixed in position */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Set a base z-index for all modals */
+}
+
+.customer-modal {
+    z-index: 1000; /* Set lower z-index for the Add Customer modal */
+}
+
+.customer-payment-modal {
+    z-index: 1010; /* Set higher z-index for the Payment modal */
+}
+
+/* Customer Payment Modal Styles */
+.customer-payment-modal .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px; /* Prevents the modal from becoming too wide */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Header */
+.customer-payment-modal h2 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* Modal Fields */
+.customer-payment-modal .modal-field {
+    margin-bottom: 15px;
+}
+
+.customer-payment-modal .modal-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.customer-payment-modal .modal-field input {
+    width: 100%;
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Modal Buttons */
+.customer-payment-modal .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.customer-payment-modal .modal-submit-button,
+.customer-payment-modal .modal-close-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.customer-payment-modal .modal-submit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.customer-payment-modal .modal-close-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.customer-payment-modal .modal-submit-button:hover {
+    background-color: #45a049;
+}
+
+.customer-payment-modal .modal-close-button:hover {
+    background-color: #e53935;
+}

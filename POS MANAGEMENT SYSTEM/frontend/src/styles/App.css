@@ -1,0 +1,140 @@
+/* Global Reset */ 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: white; /* White background */
+  margin: 0;               /* No margin */
+  padding: 0;              /* No padding */
+  height: 100vh;           /* 100% of the viewport height */
+  overflow: hidden;        /* Prevent scrolling */
+}
+
+/* Container for Split Layout */
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%; /* Full width */
+}
+
+/* Left Side (Image) */
+.left-side {
+  width: 50%;               /* Occupy exactly 50% of the width */
+  height: 870px;
+}
+
+.left-side img {
+  width: 100%;              /* Make the image take up the full width of the left-side */
+  height: 100%;             /* Make the image take up the full height of the left-side */
+  object-fit: cover;        /* Ensures the image covers the area without distortion */
+}
+
+/* Right Side (Login Area) */
+.right-side {
+  width: 50%;               /* Occupy the other 50% of the width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* Vertically center the content */
+  align-items: center;       /* Horizontally center the content */
+  background-color: #fff;    /* Keep the background white */
+}
+
+.login-logo img {
+  width: 210px;
+  margin: -30px 0 0 0px;
+  margin-left: 5px !important;
+  margin-bottom: -40px !important;
+}
+
+/* Buttons container */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;          /* Full width of the container */
+  max-width: 300px;      /* Max width of the buttons container */
+  margin-bottom: 20px;
+  align-items: center;   /* Center buttons horizontally */
+}
+
+/* Adjusted button class */
+.btn {
+  width: 100%;           /* Make all buttons the same width */
+  max-width: 300px;      /* Set a max width to ensure uniformity */
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.4s ease; /* Smooth transition */
+  background-color: #FF4C4C;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Button hover effects */
+.btn:hover {
+  background-color: #E04444;
+  transform: translateY(-3px); /* Lift effect on hover */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+}
+
+.logIn {
+  margin-right: 205px;
+  width: 100%;          /* Google button takes the same full width */
+}
+
+.signUp {
+  margin-right: 195px;
+  width: 100%;          /* Google button takes the same full width */
+}
+
+/* Google login button */
+.google {
+  background-color: #DB4437;
+  width: 100%;          /* Google button takes the same full width */
+}
+
+.google:hover {
+  background-color: #C53727;
+  transform: translateY(-3px); /* Same hover effect */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+/* Footer Text */
+footer {
+  margin-top: 30px;
+}
+
+footer p {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+.alternative-buttons .btn:hover {
+  background-color: #DA0000;
+}
+
+.alternative-buttons .google {
+display: flex;
+align-items: center;
+}
+
+.alternative-buttons .google img {
+width: 20px;
+margin-right: 10px;
+}
+
+.alternative-buttons .btn:hover {
+  background-color: #DA0000;
+  color: white;
+} 

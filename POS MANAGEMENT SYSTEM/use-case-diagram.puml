@@ -1,0 +1,64 @@
+@startuml Retail Management System
+
+left to right direction
+skinparam actorStyle awesome
+
+' Actors
+actor "Owner" as owner
+actor "Cashier" as staff
+actor "Customer" as customer
+
+rectangle "Retail Management System" {
+    ' User Management
+    usecase "Register User" as UC1
+    usecase "Login" as UC2
+    usecase "Update User Details" as UC3
+    
+    ' Customer Management
+    usecase "Add Customer" as UC4
+    usecase "Update Customer" as UC5
+    usecase "Delete Customer" as UC6
+    usecase "View Customers" as UC7
+    usecase "Manage Customer Points" as UC8
+    
+    ' Product Management
+    usecase "Manage Products" as UC9
+    usecase "Manage Categories" as UC10
+    
+    ' Transaction Management
+    usecase "Process Sales" as UC11
+    usecase "View Transaction History" as UC12
+    usecase "Process Orders" as UC13
+}
+
+' Owner relationships
+owner --> UC1
+owner --> UC2
+owner --> UC3
+owner --> UC4
+owner --> UC5
+owner --> UC6
+owner --> UC7
+owner --> UC8
+owner --> UC9
+owner --> UC10
+owner --> UC11
+owner --> UC12
+owner --> UC13
+
+' Staff relationships
+staff --> UC2
+staff --> UC3
+staff --> UC4
+staff --> UC5
+staff --> UC7
+staff --> UC8
+staff --> UC11
+staff --> UC12
+
+' Customer relationships
+customer --> UC8 : earns/redeems
+customer --> UC11 : participates in
+customer --> UC13 : places
+
+@enduml

@@ -1,0 +1,638 @@
+/* POS.css */
+
+
+.pos-container {
+    display: flex; /* Use flexbox for layout */
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+    overflow: hidden; /* Prevent overflow */
+    background-color: white;
+    padding: 90px;
+    gap: 60px;
+
+}
+
+
+.pos-dash {
+    font-family: 'Oswald', sans-serif;
+    color: #EF2646;
+    margin: 24px 0;
+    text-align: left;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    display: flex; /* Use flex to align text and icon */
+    align-items: center; /* Vertically center the items */
+    font-size: 35px;
+}
+
+
+.pos-icon {
+    margin-right: 10px; /* Add space between the icon and the text */
+    width: 50px; /* Set a size for the icon */
+    height: 50px; /* Set a size for the icon */
+}
+
+
+.pos-main-content {
+    margin-top: -60px;
+    display: flex; /* Use flexbox for layout */
+    flex: 1; /* Take up remaining space */
+    padding: 20px; /* Padding for the main content */
+    overflow-y: auto; /* Scroll if content overflows */
+    background-color: white; /* Changed to white for better contrast */
+    height: 700px;
+}
+
+.pos-left {
+    flex: 1; /* Take up 50% of the width */
+    margin-right: 20px; /* Space between left and right sections */
+    background-color: #f9f9f9; /* Light background for POS area */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.pos-right {
+    flex: 1; /* Take up 50% of the width */
+    background-color: #f2f2f2; /* Light background for Receipt area */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.qr-scanner,
+.sku-search,
+.customer-search,
+.quantity-control,
+.amount-display {
+    margin-bottom: 15px; /* Space between elements */
+}
+
+.pos-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between elements */
+}
+
+.pos-columns {
+    display: flex; /* Create two columns */
+    gap: 20px; /* Space between columns */
+}
+
+.sku-value {
+    position: relative;
+    width: 200px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.customer-search {
+    position: relative;
+    width: 201px;
+}
+
+.sku-value select {
+    font-size: 10px; /* Set the font size */
+
+    color: black; /* Set the text color */
+}
+
+.custom-dropdown {
+    position: relative;
+    border: 1px solid rgb(58, 57, 57);
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 0px;
+}
+
+.dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-search {
+    width: 100%;
+    padding: 3px;
+    border: none;
+    outline: none;
+}
+
+.dropdown-options {
+    position: absolute;
+    top: 35px; /* Adjust based on your design */
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-option {
+    padding: 3px;
+    cursor: pointer;
+    font-size: 14px; /* Font size for options */
+    font-weight: normal; /* Font weight for options */
+    color: black; /* Text color for options */
+}
+
+.dropdown-option:hover {
+    background-color: #f0f0f0;
+}
+
+
+.qr-scanner {
+    flex: 1; /* Allow this to take up available space */
+    background-color: #f0f0f0; /* Light background for scanner */
+    padding: 10px; /* Padding around the scanner */
+    border-radius: 8px; /* Rounded corners */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    height: 100%; /* Ensure it takes full height of its parent */
+    overflow: hidden; /* Prevent overflow if necessary */
+}
+
+.qr-video {
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Fixed height, you can adjust this value */
+    object-fit: cover; /* Maintain aspect ratio */
+    border: 1px solid #ccc; /* Optional: add a border for visual reference */
+}
+
+
+
+
+
+.quantity-control {
+    display: flex; /* Align buttons and quantity number horizontally */
+    align-items: center; /* Center vertically */
+    gap: 25px; /* Space between elements */
+    
+}
+
+
+.quantity-btn {
+    width: 40px; /* Set a fixed width for buttons */
+    height: 40px; /* Set a fixed height for buttons */
+    background-color: #007bff; /* Button color */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 1.5em; /* Larger font size for visibility */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+    margin: 0 10px; /* Space between buttons and quantity display */
+}
+
+.quantity-btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.quantity-display {
+    font-size: 1.5em; /* Larger font for quantity */
+    margin: 0 10px; /* Space around the quantity text */
+    text-align: center; /* Center the text */
+}
+
+
+.amount-display {
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-top: 20px; /* Space above the section */
+}
+
+.amount-display h3 {
+    margin-bottom: 15px; /* Space below the header */
+    font-size: 1.5em; /* Slightly larger font size */
+    text-align: center; /* Center the header */
+    color: #333; /* Darker color for text */
+}
+
+.amount-item {
+    display: flex; /* Use flex to align items */
+    justify-content: space-between; /* Space between label and value */
+    padding: 10px 0; /* Padding above and below */
+    border-bottom: 1px solid #ddd; /* Light border for separation */
+}
+
+.amount-item:last-child {
+    border-bottom: none; /* Remove border for the last item */
+}
+
+.amount-buttons {
+    display: flex; /* Align buttons horizontally */
+    justify-content: space-between; /* Space out the buttons */
+    margin-top: 15px; /* Space above buttons */
+}
+
+.use-points-btn, .pay-btn {
+    flex: 1; /* Make buttons take equal space */
+    padding: 10px; /* Padding inside buttons */
+    margin: 0 5px; /* Space between buttons */
+    border: none; /* Remove default border */
+    border-radius: 4px; /* Rounded corners for buttons */
+    font-size: 1em; /* Button font size */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.use-points-btn {
+    background-color: #007bff; /* Primary button color */
+    color: white; /* White text for contrast */
+}
+
+.pay-btn {
+    background-color: #28a745; /* Success button color */
+    color: white; /* White text for contrast */
+}
+
+.use-points-btn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.pay-btn:hover {
+    background-color: #218838; /* Darker shade on hover */
+}
+
+
+.pos-right {
+    background-color: #f8f9fa; /* Light background for contrast */
+    padding: 20px; /* Padding around the content */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.receipt-table-container {
+    max-height: 590px; /* Adjust this height as needed */
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+
+.receipt-table {
+    width: 100%; /* Full width for the table */
+    border-collapse: collapse; /* Merge borders */
+    margin-bottom: 20px; /* Space below the table */
+}
+
+.receipt-table th, .receipt-table td {
+    border: 1px solid #dee2e6; /* Border for table cells */
+    padding: 10px; /* Padding inside cells */
+    text-align: left; /* Left align text */
+}
+
+.receipt-table th {
+    background-color: #e9ecef; /* Light gray background for header */
+    position: sticky;          /* Make the header sticky */
+    top: 0;                    /* Stick to the top of the container */
+    z-index: 1;                /* Ensure the header is above other content */
+}
+
+
+.sku-suggestions {
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    z-index: 1;
+}
+
+.sku-suggestions li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.sku-suggestions li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Animation for Modals */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.quantity-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content input {
+    padding: 10px;
+    margin: 10px 0;
+    width: 100px;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #45a049;
+}
+
+.points-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+   
+}
+
+.points-modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.points-input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.points-submit-btn,
+.points-cancel-btn {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.points-submit-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.points-cancel-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Modal Background */
+.pay-modal, .confirmation-modal, .payment-success-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Modal Content */
+.pay-modal-content, .confirmation-modal-content, .payment-success-modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+
+
+/* Modal Heading */
+.pay-modal-content h3, .confirmation-modal-content h3, .payment-success-modal-content h3 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* Modal Items */
+.pay-amount-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Input for Cash Amount */
+.pay-amount-item input[type="number"] {
+    width: 100px;
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: right;
+}
+
+/* Modal Buttons */
+.pay-modal-content button,
+.confirmation-modal-content button{
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1em;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.payment-success-modal-content button {
+    background-color: #4CAF50 !important;
+    color: white;
+    font-size: 1em;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.close-payment-modal {
+    background-color: #f44336 !important;  /* Set background color to red */
+    color: white;           /* Set text color to white for visibility */
+    border: none;           /* Optional: Remove default border */
+    padding: 10px 20px;     /* Optional: Adjust padding */
+    cursor: pointer;       /* Optional: Change cursor on hover */
+    border-radius: 5px;     /* Optional: Rounded corners */
+}
+
+.close-payment-modal:hover {
+    background-color: darkred;  /* Optional: Darker shade on hover */
+}
+
+
+.pay-modal-content button:hover,
+.confirmation-modal-content button:hover {
+    background-color: #45A049 ;
+}
+
+.payment-success-modal-content button:hover {
+    background-color: #d32f2f !important;
+}
+
+/* Secondary Button (e.g., Cancel) */
+.pay-modal-content button:nth-child(2),
+.confirmation-modal-content button:nth-child(2) {
+    background-color: #f44336;
+}
+
+.pay-modal-content button:nth-child(2):hover,
+.confirmation-modal-content button:nth-child(2):hover {
+    background-color: #d32f2f;
+}
+
+/* Payment Success Style */
+.payment-success-modal-content {
+    background-color: #45A049;
+    color: white;
+}
+
+.payment-success-modal-content h3 {
+    color: #fff;
+}
+
+.payment-success-modal-content button {
+    background-color: #d32f2f !important;
+    color: white;
+}
+
+.payment-success-modal-content button:hover {
+    background-color: #e0e0e0;
+}
+
+
+
+.alert-points-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    
+}
+
+.alert-points-modal .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 300px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.alert-points-modal h3 {
+    margin-top: 0;
+}
+
+.alert-points-modal button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Modal backdrop */
+.no-items-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Make sure modal is on top */
+}
+
+/* Modal content box */
+.no-items-modal-content {
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    animation: fadeIn 0.3s ease-in-out;
+
+}
+
+/* Modal text styling */
+.no-items-modal-content h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Close button styling */
+.no-items-modal-content button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #EF2646; /* Change to your primary color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.no-items-modal-content button:hover {
+    background-color: #EF2646; /* Darker shade for hover effect */
+}
+
+
+

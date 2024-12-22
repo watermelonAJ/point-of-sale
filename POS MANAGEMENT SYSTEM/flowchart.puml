@@ -1,0 +1,66 @@
+@startuml Retail Management System Flow
+
+!theme plain
+skinparam backgroundColor transparent
+skinparam ArrowColor #2C3E50
+skinparam ActivityBorderColor #2C3E50
+skinparam ActivityBackgroundColor #ECF0F1
+
+start
+
+partition "User Authentication" {
+    :Login;
+    if (User Exists?) then (yes)
+        :Verify Credentials;
+        if (Valid?) then (yes)
+            :Load Dashboard Based on Role;
+        else (no)
+            :Show Error Message;
+            stop
+        endif
+    else (no)
+        :Show Registration Form;
+        note right: Only for Owner/Cashier
+        :Register New User;
+    endif
+}
+
+partition "Main Operations" {
+    split
+        :Customer Management;
+        split
+            :Add New Customer;
+            :Assign Customer ID;
+            :Store Customer Details;
+        split again
+            :Update Customer;
+            :Manage Points;
+        split again
+            :View Customer List;
+        end split
+    split again
+        :Product Management;
+        split
+            :Add/Update Products;
+            :Manage Categories;
+        split again
+            :View Inventory;
+        end split
+    split again
+        :Transaction Processing;
+        split
+            :Process Sale;
+            :Update Inventory;
+            :Update Customer Points;
+        split again
+            :Handle Orders;
+            :Update Transaction History;
+        end split
+    end split
+}
+
+:Generate Reports;
+
+stop
+
+@enduml

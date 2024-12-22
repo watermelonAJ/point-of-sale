@@ -1,0 +1,133 @@
+/* GoogleLoginComponent.css */
+
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content-google {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Google Login Component Styles */
+.google-close-btn {
+    background: none; /* Remove default background */
+    border: none; /* Remove border */
+    font-size: 1.5rem; /* Adjust font size */
+    color: black; /* Set color to black */
+    cursor: pointer; /* Make it clickable */
+    padding: 0; /* Remove padding to ensure it aligns well */
+    
+}
+
+.google-close-btn:hover {
+    color: #333; /* Darken color on hover */
+    background-color: white !important;
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+    color: #FF6B6B;  /* Matches your red theme */
+}
+
+/* Make all input fields and selects have consistent width */
+.input-field {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* This is crucial - it includes padding and border in the width calculation */
+}
+
+/* Style specifically for select dropdowns to match input width */
+select.input-field {
+    width: 100%;
+    background-color: white;
+    height: 35px; /* Match the height of your input fields */
+}
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.submit-btn, .cancel-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.submit-btn {
+    background-color: #4CAF50;  /* Green */
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #4CAF50;  /* Green */
+    color: white;
+}
+
+.cancel-btn {
+    background-color: #FF6B6B !important;  /* Green */
+    color: white;
+}
+
+.google-notification {
+    background-color: #4caf50; /* Green background */
+    color: white; /* White text */
+    padding: 10px; /* Padding around the text */
+    text-align: center; /* Center the text */
+    position: absolute; /* Absolute position */
+    top: 0; /* Top of the page */
+    left: 0; /* Left alignment */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Make sure it appears above other content */
+    transition: opacity 0.5s ease; /* Fade in/out effect */
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 9999;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,142 @@
+/* Dashboard.css */
+
+
+.dashboard-container {
+    display: flex; /* Use flexbox for layout */
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+    overflow: hidden; /* Prevent overflow */
+    background-color: #e8f1f7 !important;
+    padding: 90px;
+    gap: 60px;
+
+}
+
+.dash {
+    font-family: 'Oswald', sans-serif; /* Ensure the font is imported */
+    font-size: 32px; /* Font size */
+    color: #EF2646; /* Text color */
+    margin: 24px 0; /* Vertical margin for spacing */
+    text-align: center; /* Center align the text */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Optional: adds shadow for depth */
+}
+
+
+.main-content {
+    flex: 1; /* Take up remaining space */
+    padding: 5px; /* Padding for the main content */
+    overflow-y: auto; /* Scroll if content overflows */
+    background-color: #e8f1f7;
+    margin-top: -50px;
+}
+
+
+
+.stat-cards-container {
+    display: flex; /* Align cards in a single row */
+    justify-content: space-between; /* Space between cards */
+    margin: 20px 0; /* Add spacing */
+    gap: 20px; /* Spacing between cards */
+}
+
+.stat-card {
+    flex: 1; /* All cards take equal space */
+    background-color: white; /* White background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Inner spacing */
+    text-align: left; /* Align content to the left */
+    color: #333; /* Neutral text color */
+    transition: transform 0.3s ease; /* Animation for hover */
+}
+
+.stat-card:hover {
+    transform: translateY(-5px); /* Lift card slightly on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+
+.stat-card p {
+    font-size: 15px; /* Font size for label and value */
+    color: #333; /* Default text color */
+    display: flex;
+    justify-content: space-between; /* Align label and value on the same line */
+    align-items: center;
+}
+
+.stat-card span {
+    font-size: 24px; /* Larger size for values */
+    font-weight: bold; /* Emphasize the value */
+    color: #007BFF; /* Blue text for values */
+}
+
+
+/* Dashboard.css */
+
+.chart-container {
+    flex: 1;
+    padding: 10px;
+    background-color: white; /* Set white background for pie chart */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+}
+
+.chart-container h3 {
+    margin-top: 30px;
+    font-size: 20px; /* Adjust the font size */
+    color: #333; /* Set text color */
+    font-weight: bold; /* Set the font weight */
+    text-align: left; /* Align text to the center */
+    margin-bottom: 20px; /* Add space below the heading */
+    text-transform: uppercase; /* Make text uppercase */
+    margin-left: 35px;
+}
+
+
+.pie-chart-wrapper {
+    position: relative;
+    max-width: 500px; /* Control the max size of the pie chart */
+    margin: 0 auto; /* Center the chart */
+    padding: 20px;
+    margin-top: -50px; /* Optional: Adjust space above the chart */
+    border-radius: 8px; /* Optional: rounded corners */
+    align-items: flex-start; /* Align the pie chart to the top left */
+    margin-left: -10px; /* Optional: adds space from the left edge */
+    flex-shrink: 0; /* Prevent shrinking of the chart */
+    flex: 1; /* Allow the pie chart to take available space */
+   
+  
+   
+}
+
+
+.bar-chart-wrapper {
+    position: relative;
+    max-width: 600px; /* Set max width for the chart */
+    margin: 0 auto; /* Center the chart */
+    padding: 20px;
+    border-radius: 8px; /* Optional: rounded corners */
+    background-color: white; /* White background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Prevent shrinking */
+    overflow: hidden; /* Prevent overflow */
+}
+
+
+
+
+
+
+
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .stat-cards-container {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+    .pie-chart-container {
+        padding: 15px;
+    }
+}
+
+

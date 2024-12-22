@@ -1,0 +1,345 @@
+/* user.css */
+
+.user-container {
+    display: flex; /* Use flexbox for layout */
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+    overflow: hidden; /* Prevent overflow */
+    background-color: white;
+    padding: 90px;
+    gap: 60px;
+}
+
+.user-main-content {
+    flex: 1; /* Take up remaining space */
+    padding: 5px; /* Padding for the main content */
+    overflow-y: auto; /* Scroll if content overflows */
+    background-color: white;
+    margin-top: 30px;
+}
+
+.user-profile-section {
+    display: flex;
+    gap: 90px; /* Space between the two cards */
+    justify-content: center; /* Center align the section */
+    align-items: flex-start; /* Align the cards at the top */
+}
+
+.user-header {
+    font-family: 'Oswald', sans-serif;
+    font-size: 38px;
+    color: #EF2646;
+    margin-bottom: 30px; /* Space between header and profile card */
+    text-align: left;
+    margin-left: 390px;
+}
+
+.user-icon {
+    margin-right: 10px; /* Add space between the icon and the text */
+    margin-bottom: -5px;
+    width: 50px; /* Set a size for the icon */
+    height: 50px; /* Set a size for the icon */
+}
+
+.user-profile-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Adjust items inside the card */
+    align-items: center;
+    width: 400px; /* Wider card */
+   
+    background-color: #f8f8f8; /* Light gray background for the card */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    padding: 20px;
+    text-align: center;
+    gap: 20px;
+}
+
+.user-details {
+    width: 100%; /* Take full width for alignment */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.user-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.user-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    color: #555;
+    
+    margin-bottom: 3px; /* Space between label and value */
+}
+
+.user-value {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    color: #333;
+    border: 1px solid #ddd; /* Add border around value */
+    border-radius: 0px;
+    width: 90%; /* Ensure consistent width */
+    padding: 8px 10px; /* Add padding for better spacing */
+    text-align: left; /* Center-align the text */
+    background-color: #fff; /* White background for contrast */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Creates an inner shadow */
+}
+
+.user-edit-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #EF2646;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 90%;
+    margin-left: -35px;
+}
+
+.user-edit-button:hover {
+    background-color: #c11f3b; /* Darker red on hover */
+}
+
+.sales-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 400px; /* Same width as profile card */
+    height: 400px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    gap: 20px;
+}
+
+.sales-header {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    color: #EF2646;
+    margin-bottom: -10px; /* Space between header and table */
+    padding-bottom: 15px; /* Increase space below the header */
+}
+
+.sales-table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Increase space between rows */
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.sales-column {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    color: #333;
+    padding: 15px 20px; /* Increased padding for better spacing */
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.sales-table th {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    color: #EF2646;
+    text-align: center;
+    padding: 15px 30px; /* Increased padding for the header cells */
+    background-color: #f1f1f1;
+}
+
+
+.year-header {
+    cursor: pointer;
+    position: relative;
+}
+
+.year-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.year-dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.year-dropdown li {
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.year-dropdown li:hover {
+    background-color: #f1f1f1;
+}
+
+
+
+/*modals*/
+
+
+
+
+/* Modal Background */
+.user-edit-profile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure the modal is above other content */
+}
+
+/* Modal Content */
+.user-edit-profile .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 450px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modal Header */
+.user-edit-profile .modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* Modal Form */
+.user-edit-profile .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between input fields */
+}
+
+/* Input Fields */
+.user-edit-profile .modal-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user-edit-profile .modal-field label {
+    font-size: 14px;
+    color: #555;
+}
+
+.user-edit-profile .modal-field input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.user-edit-profile .modal-field input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Buttons */
+.user-edit-profile .modal-submit-button,
+.user-edit-profile .modal-close-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.user-edit-profile .modal-submit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.user-edit-profile .modal-submit-button:hover {
+    background-color: #45a049;
+}
+
+.user-edit-profile .modal-close-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.user-edit-profile .modal-close-button:hover {
+    background-color: #e53935;
+}
+
+/* Ensure modal is hidden when not shown */
+.user-edit-profile.hidden {
+    display: none;
+}
+
+
+/* Confirmation Modal Styles */
+.modal.user-submit-changes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000;
+}
+
+.modal.user-submit-changes .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+
+.modal.user-submit-changes .modal-buttons {
+    margin-top: 20px;
+}
+
+.modal.user-submit-changes .modal-buttons button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal.user-submit-changes .modal-buttons .modal-submit-button {
+    background-color: green;
+    color: white;
+}
+
+.modal.user-submit-changes .modal-buttons .modal-close-button {
+    background-color: red;
+    color: white;
+}

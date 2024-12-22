@@ -1,0 +1,459 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: white; /* Ensure background is white */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto; /* Allow dynamic scrolling */
+    color: black;
+}
+
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 100% of the viewport height */
+    width: 100vw; /* 100% of the viewport width */
+    background-color: white; /* Set background color to white */
+    padding: 20px; /* Add some padding for the content */
+    margin-bottom: 20px;
+}
+
+.signup-box {
+    width: 550px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(85, 76, 76, 0.95);
+    height: auto; /* Adjust height to content */
+}
+
+.logo img {
+    width: 200px; /* Adjusted size */
+    margin-bottom: -30px;
+    margin-top: -60px;
+    margin-left: 125px;
+}
+
+h1 {
+    color: #FF4C4C;
+    margin-bottom: 30px; /* More space between title and form */
+    font-size: 36px; /* Larger font size */
+}
+
+/* Ensure the label is above the textbox with spacing */
+.first-name, .last-name {
+    display: flex;
+    flex-direction: column; /* Stack label and input vertically */
+    margin-bottom: 15px; /* Space between fields */
+    align-items: center; /* Align items to the left */
+  }
+  
+  /* Styling for the label */
+  .first-name label, .last-name label {
+    margin-bottom: 8px; /* Adds space between label and input */
+    font-size: 16px;
+    color: #FF4C4C;
+    margin-left: 200px;
+    width: 100%; /* Ensures label takes the full width of the container */
+  }
+
+/* Ensure the label is above the textbox with spacing */
+.form-group {
+    display: flex;
+    flex-direction: column; /* Stack label and input vertically */
+    margin-bottom: 15px; /* Space between fields */
+    align-items: center; /* Align items to the left */
+  }
+  
+  /* Styling for the label */
+  .form-group label {
+    margin-bottom: 8px; /* Adds space between label and input */
+    font-size: 16px;
+    color: #FF4C4C;
+    text-align: left;
+    width: 100%; /* Ensures label takes the full width of the container */
+  }
+  
+  /* Styling for the input fields */
+  .name-input {
+    width: 60%; /* Adjust the width of the input */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  
+/* Form Grid for Layout */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 20px; /* Spacing between grid items */
+}
+
+/* Ensure full-width elements span both columns */
+.form-grid .form-group:nth-child(5) { /* Role Field */
+  grid-column: span 2; /* Full width */
+}
+
+label {
+    font-size: 14px;
+    color: #FF4C4C;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow */
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding doesn't affect input width */
+    background-color: white; /* Set background to white */
+    color: black;
+}
+
+input:focus {
+    border-color: #FF4C4C; /* Highlight color on focus */
+}
+
+.password-group {
+    display: flex;
+    flex-direction: column; /* Stack label and input vertically */
+    margin-bottom: 15px; /* Space between fields */
+    align-items: center; /* Align items to the left */
+  }
+
+  /* Container for the input and eye icon to align them */
+.input-container {
+    display: flex;
+    align-items: center; /* Aligns the input and eye icon vertically */
+    position: relative; /* Required for positioning the eye icon */
+  }
+  
+  /* Styling for the input */
+  .password-group input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 225px; /* Takes full width of the container */
+    margin-right: 5px; /* Make space for the eye icon */
+    box-sizing: border-box; /* Prevents the padding from affecting the width */
+  }
+  
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 55%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Styling for the label */
+.password-group label {
+    font-size: 16px;
+    color: #FF4C4C;
+    margin-bottom: 8px;
+  }
+  
+
+button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #FF4C4C;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 20px auto; /* Center the button */
+    display: block; /* Make it a block element */
+    width: 100%; /* Full width button */
+    height: 45px;
+}
+
+button:hover {
+    background-color: #DA0000;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+.notification {
+    background-color: #4caf50; /* Green background */
+    color: white; /* White text */
+    padding: 10px; /* Padding around the text */
+    text-align: center; /* Center the text */
+    position: absolute; /* Absolute position */
+    top: 0; /* Top of the page */
+    left: 0; /* Left alignment */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Make sure it appears above other content */
+    transition: opacity 0.5s ease; /* Fade in/out effect */
+}
+
+  /* Style for the "Already have an account? Log in" link */
+  .account-link-container {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .account-link-container p {
+    font-size: 14px;
+  }
+  
+  .account-link-container a {
+    color: #FF4C4C;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .account-link-container a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Alternative buttons (for "Or" and Google sign-in) */
+  .alternative-buttons {
+    text-align: center;
+    margin-top: 20px;
+    width: 60%;
+    margin-left: 95px;
+  }
+  
+  .alternative-buttons p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+/* Styling for the Sign Up button */
+.register-button {
+    padding: 10px 20px; /* Adjust padding as needed */
+    font-size: 16px; /* Set font size */
+    width: 60%; /* Make the button full-width */
+    max-width: 200px; /* Set a maximum width if needed */
+    max-height: 40px;
+    background-color: #FF4C4C; /* Button color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-top: 20px; /* Add space above the button */
+    text-align: center; /* Center text */
+}
+
+  .alternative-buttons .btn:hover {
+    background-color: #DA0000;
+  }
+  
+.alternative-buttons .google {
+  display: flex;
+  align-items: center;
+}
+
+.alternative-buttons .google img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.alternative-buttons .btn:hover {
+    background-color: #DA0000;
+    color: white;
+} 
+
+/* Ensure the label is above the select dropdown with spacing */
+.role {
+    display: flex;
+    flex-direction: column; /* Stack label and select vertically */
+    margin-bottom: 15px; /* Space between fields */
+    align-items: flex-start; /* Align items to the left */
+    width: 200%; /* Set width to 100% to ensure proper container width */
+}
+
+/* Styling for the label */
+.role label {
+    margin-bottom: 8px; /* Adds space between label and select */
+    font-size: 16px;
+    color: #FF4C4C;
+    margin-left: 115px;
+    width: 100%; /* Ensures label takes the full width of the container */
+}
+
+/* Add styling for the role dropdown */
+.role-select {
+    padding: 10px;
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow */
+    font-size: 16px;
+    width: 50%; /* Adjust the width of the select box */
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+    margin-top: 5px;
+    text-align: left; /* Centers text inside the select box */
+    margin-left: 25%; /* Center the select box horizontally */
+} 
+
+.role-select:focus {
+    border-color: #FF4C4C; /* Highlight color on focus */
+
+}
+
+/* Modal container */
+.userID-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    z-index: 1000;
+}
+
+/* Modal content */
+.userID-modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.userID-modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+.userID-modal-content p {
+    font-size: 18px;
+    color: #555555;
+    margin-bottom: 10px;
+}
+
+.userID-modal-content strong {
+    font-size: 20px;
+    color: #007bff;
+    display: block;
+    margin: 10px 0;
+}
+
+.userID-modal-content button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.userID-modal-content button:hover {
+    background-color: #0056b3;
+}
+
+/* New Styles for Password Validation and Error Messages */
+.small-error-message {
+    color: #FF4C4C;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+.password-strength {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #FF4C4C; /* Weak strength color */
+    margin-right: 140px;
+}
+
+.password-strength.strong {
+    color: #4CAF50; /* Green for strong passwords */
+}
+
+.password-strength.moderate {
+    color: #FFA500; /* Orange for moderate passwords */
+}
+
+.error-visible {
+    display: block;
+}
+
+.error-hidden {
+    display: none;
+}
+
+.form-section {
+    width: 100%;
+}
+
+.next-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Optional: vertically align if needed */
+    width: 100%; /* Ensure it takes full width of its parent */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+  
+  .next-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #FF4C4C;  /* Red background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 40%;
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .next-button:hover {
+    background-color: #DA0000;  /* Darker red when hovered */
+  }
+  
+  .next-button:disabled {
+    background-color: #ddd;  /* Disabled button with light gray background */
+    cursor: not-allowed;  /* Change cursor to not-allowed when disabled */
+  }
+  
+  .back-button-container {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #f0f0f0; /* Light gray background */
+    border: none;
+    border-radius: 5px;
+    color: #333; /* Dark text color */
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-button:hover {
+    background-color: #e0e0e0; /* Slightly darker gray on hover */
+  }
+  

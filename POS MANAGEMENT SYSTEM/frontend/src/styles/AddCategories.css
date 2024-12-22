@@ -1,0 +1,344 @@
+/* AddCategories.css */
+
+/* General container styling */
+.addcategories-container {
+    display: flex; /* Use flexbox for layout */
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+    overflow: hidden; /* Prevent overflow */
+    background-color: white;
+    padding: 90px;
+    gap: 60px;
+}
+
+
+
+/* Main content */
+.addcategories-main-content {
+    flex: 1;
+    padding: 0px;
+    background-color: white;
+    overflow-y: auto;
+    margin-top: -50px;
+    overflow: hidden;
+    justify-content:flex-start;
+ 
+}
+
+.categories-dash {
+    font-family: 'Oswald', sans-serif;
+    color: #EF2646;
+    margin: 24px 0;
+    text-align: left;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    display: flex; /* Use flex to align text and icon */
+    align-items: center; /* Vertically center the items */
+    margin-top: 10px;
+    font-size: 40px;
+ 
+}
+
+.categories-icon {
+    margin-right: 10px; /* Add space between the icon and the text */
+    width: 50px; /* Set a size for the icon */
+    height: 50px; /* Set a size for the icon */
+}
+
+
+
+.search-container {
+    display: flex;
+    justify-content: flex-start;  /* Align children to the left */
+    align-items: center; /* Optional: Centers items vertically */
+    gap: 10px; /* Adds spacing between child elements */
+
+}
+
+
+
+.search-bar-categories {
+    width:40% !important;
+    padding: 8px 10px 8px 40px; /* Add left padding for space for the icon */
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-image: url('/search.png');
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    text-indent: 35px;
+    margin-bottom: 20px;
+    margin-left: 2px; /* Ensure no negative margin */
+    
+}
+
+
+.add-category-button {
+    margin-top: 10px; /* Adds spacing between the heading and the button */
+    padding: 10px 15px; /* Adds padding for the button */
+    background-color: #f44336; /* Sets button background color */
+    color: #fff; /* Sets button text color */
+    border: none; /* Removes default border */
+    border-radius: 5px; /* Rounds button corners */
+    font-size: 16px; /* Sets font size */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    margin-left: 15px;
+    width: 133px;
+   
+}
+
+.add-category-button:hover {
+    background-color: #d02a39; /* Darker blue on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Sticky header for table */
+.addcategories-table thead {
+    position: sticky;
+    top: 0;
+  
+ 
+}
+
+
+/* Bottom container for categories */
+.addcategories-bottom-container {
+    height: 60vh; /* Adjust based on the available space */
+    overflow-y: auto; /* Prevent overflow here */
+  
+}
+
+/* Table styling */
+.addcategories-table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Remove spaces between borders */
+    margin-top: 10px; /* Add space above the table */
+    font-family: Arial, sans-serif; /* Font style */
+    background-color: white; /* Table background */
+    border: 1px solid #ddd; /* Apply black border around the table */
+}
+
+.addcategories-table th,
+.addcategories-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+}
+
+.category-description-column {
+    width: 260px; /* Set a specific width for the description column */
+    word-wrap: break-word; /* Allows long words to break to the next line */
+    overflow-wrap: break-word; /* Ensures that text can wrap within the cell */
+    white-space: normal; /* Allows text to wrap normally */
+}
+
+
+.addcategories-table th {
+    background-color: #007bff; /* Header background color */
+    color: black; /* Header text color */
+    font-weight: bold; /* Bold text for headers */
+    font-size: 15px; /* Adjust body text size */
+    border: 1px solid #ddd; /* Apply black border around the table */
+    color: white;
+}
+
+.addcategories-table td{
+    border: 1px solid #ddd; /* Apply black border around the table */
+}
+
+/* Table row hover effect */
+.addcategories-table tbody tr:hover {
+    background-color: #f6f3f3;
+}
+
+/* Action buttons */
+.edit-button, .details-button, .delete-button {
+    padding: 8px 12px;
+    margin-left: 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
+
+.delete-button:hover {
+    background-color: #d02a39;
+}
+.details-button{
+    background-color: #4CAF50;
+    color: white;
+}
+
+.details-button:hover {
+    background-color: #d02a39;
+}
+
+.edit-button {
+    background-color: #4caf50;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #d02a39;
+}
+
+/* Toast notification */
+.addcategories-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-size: 16px;
+    animation: fadeInOut 3s forwards;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+
+
+
+/*modal*/
+
+/* Modal Background */
+.user-edit-profile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure the modal is above other content */
+}
+
+/* Modal Content */
+.user-edit-profile .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 450px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modal Header */
+.user-edit-profile .modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* Modal Form */
+.user-edit-profile .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between input fields */
+}
+
+/* Input Fields */
+.user-edit-profile .modal-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start; /* Align labels and inputs to the left */
+}
+
+.user-edit-profile .modal-field label {
+    font-size: 14px;
+    color: #555;
+}
+
+.user-edit-profile .modal-field input {
+    width: 100%; /* Ensures the input stretches to the full width */
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.user-edit-profile .modal-field input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Buttons */
+.user-edit-profile .modal-submit-button,
+.user-edit-profile .modal-close-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.user-edit-profile .modal-submit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.user-edit-profile .modal-submit-button:hover {
+    background-color: #45a049;
+}
+
+.user-edit-profile .modal-close-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.user-edit-profile .modal-close-button:hover {
+    background-color: #e53935;
+}
+
+/* Ensure modal is hidden when not shown */
+.user-edit-profile.hidden {
+    display: none;
+}
